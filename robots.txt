@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://1685901916.github.io/maple-porch-puzzles/sitemap.xml

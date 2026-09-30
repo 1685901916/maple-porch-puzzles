@@ -1,0 +1,136 @@
+:root {
+  --bg: #fbf8f2;
+  --card: #ffffff;
+  --ink: #1d2433;
+  --muted: #545d6e;
+  --line: #e2dccf;
+  --accent: #1f5f8b;
+  --accent-ink: #ffffff;
+  --accent-soft: #e6f0f7;
+  --warm: #e8a33d;
+  --radius: 14px;
+  --font: "Lexend", Arial, Helvetica, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 19px;
+  line-height: 1.55;
+}
+a { color: var(--accent); }
+a:hover { text-decoration-thickness: 2px; }
+img, svg { max-width: 100%; height: auto; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 8px; background: #fff; padding: 8px 12px; z-index: 10; }
+
+/* header / nav */
+.site-header { background: var(--card); border-bottom: 1px solid var(--line); }
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-top: 12px; padding-bottom: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 22px; }
+.brand svg { width: 36px; height: 36px; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.site-nav a { color: var(--ink); text-decoration: none; font-weight: 700; font-size: 17px; padding: 6px 0; border-bottom: 3px solid transparent; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { border-bottom-color: var(--warm); }
+
+main.wrap { padding-top: 28px; padding-bottom: 56px; }
+h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 12px; }
+h2 { font-size: 1.5rem; margin: 36px 0 12px; }
+h3 { font-size: 1.2rem; margin: 0 0 6px; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 46em; margin-top: 0; }
+.crumbs { font-size: 16px; color: var(--muted); margin-bottom: 10px; }
+.crumbs a { color: var(--muted); }
+
+/* cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0; }
+.cards.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 620px) { .cards.two { grid-template-columns: 1fr; } }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.card p { margin: 0; color: var(--muted); }
+.card .go { margin-top: auto; padding-top: 10px; font-weight: 700; }
+.card.link { text-decoration: none; color: inherit; }
+.card.link:hover { border-color: var(--accent); }
+
+.theme-list { columns: 3 220px; column-gap: 24px; padding: 0; list-style: none; margin: 8px 0 0; }
+.theme-list li { break-inside: avoid; padding: 3px 0; }
+
+/* forms */
+.tool { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; display: grid; gap: 16px; margin: 20px 0; }
+.tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+label { display: grid; gap: 6px; font-weight: 700; }
+label.inline { display: inline-flex; align-items: center; gap: 8px; font-weight: 400; }
+input[type="text"], textarea, select {
+  font: inherit; font-size: 18px; color: var(--ink);
+  border: 2px solid #c9c2b4; border-radius: 10px; padding: 10px 12px; background: #fff; width: 100%;
+}
+input[type="checkbox"] { width: 22px; height: 22px; }
+textarea { min-height: 220px; resize: vertical; }
+input:focus, textarea:focus, select:focus, button:focus-visible { outline: 3px solid var(--warm); outline-offset: 2px; }
+.hint { font-weight: 400; color: var(--muted); font-size: 16px; }
+
+.btn, button {
+  font: inherit; font-weight: 700; font-size: 18px;
+  border: 2px solid var(--accent); background: var(--accent); color: var(--accent-ink);
+  border-radius: 10px; padding: 11px 20px; cursor: pointer; text-decoration: none; display: inline-block;
+}
+.btn.secondary, button.secondary { background: #fff; color: var(--accent); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 0; }
+.notice { background: #fff6e6; border: 1px solid #f0d49d; border-radius: 10px; padding: 10px 14px; }
+
+/* puzzle sheet */
+.sheet { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; margin: 16px 0; }
+.sheet h2 { margin: 0 0 4px; text-align: center; font-size: 1.8rem; }
+.sheet .meta { text-align: center; color: var(--muted); margin: 0 0 14px; }
+.sheet svg { display: block; margin: 0 auto; width: 100%; max-width: 640px; }
+.words { columns: 3 180px; column-gap: 20px; list-style: none; padding: 0; margin: 20px auto 0; max-width: 680px; font-size: 22px; font-weight: 700; letter-spacing: 0.04em; }
+.words li { padding: 2px 0; break-inside: avoid; }
+.answer-page { display: none; }
+body.show-answers .answer-page { display: block; }
+.answer-page h2 { font-size: 1.4rem; }
+.sudoku-set { display: grid; gap: 16px; }
+.answers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.answers-grid figure { margin: 0; text-align: center; }
+.answers-grid figcaption { color: var(--muted); font-size: 16px; }
+
+/* books */
+.book { flex-direction: row; gap: 16px; align-items: flex-start; }
+.book img { width: 110px; border-radius: 6px; border: 1px solid var(--line); }
+
+footer.site-footer { border-top: 1px solid var(--line); background: var(--card); color: var(--muted); font-size: 16px; }
+footer.site-footer .wrap { padding-top: 20px; padding-bottom: 28px; display: grid; gap: 8px; }
+footer.site-footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+footer.site-footer a { color: var(--muted); }
+
+.ad-slot { margin: 24px 0; min-height: 100px; }
+
+@media (max-width: 600px) {
+  body { font-size: 18px; }
+  h1 { font-size: 1.7rem; }
+  .sheet { padding: 14px; }
+  .words { font-size: 19px; }
+}
+
+@media print {
+  @page { size: letter; margin: 0.5in; }
+  body { background: #fff; font-size: 14pt; }
+  .site-header, .site-footer, .no-print, .tool, .actions, .crumbs, .lede, .ad-slot, main > h1, main > h2, main > p, .cards, .card { display: none !important; }
+  main.wrap { padding: 0; }
+  .sheet { border: 0; padding: 0; margin: 0; border-radius: 0; break-after: page; }
+  .sheet:last-child { break-after: auto; }
+  .sheet h2 { font-size: 26pt; }
+  .sheet svg { max-width: 7.2in; }
+  .words { font-size: 18pt; max-width: 7.2in; }
+  .answer-page { display: block; break-before: page; }
+  body.no-key .answer-page { display: none !important; }
+}
+
+/* puzzle glyphs (SVG text inherits these, on screen and in print) */
+.ws-grid text, .su-grid text { font-family: var(--font); text-anchor: middle; fill: #1d2433; font-weight: 700; }
+.ws-grid text { font-size: 27px; }
+.su-grid text { font-size: 34px; }
+.su-grid text.f { font-weight: 400; fill: #1f5f8b; }
